@@ -10,7 +10,7 @@ $h1 = "Liste des annonces";
 include "vues/header.html.php";
 ?>
 <div class="col-sm-6"></div>
-<div class="card-columns d-flex flex-wrap justify-content-between">
+<div class="card-columns d-flex flex-wrap justify-content-around">
     <?php foreach ($adverts as $adverts) : ?>
         <div class="card mb-3" style="width: 18rem;">
             <img class="card-img-top" src="/assets/img/home.jpg" alt="Card image cap">
