@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jul 26, 2022 at 02:49 PM
+-- Generation Time: Aug 09, 2022 at 06:35 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -48,7 +48,10 @@ INSERT INTO `advert` (`id`, `title`, `description`, `postal_code`, `city`, `type
 (2, 'Grande maison', 'Grande maison bleue', 94400, 'Vitry-sur-Seine', 'Location', 300000, NULL, 0),
 (3, 'test', 'test', 22143, 'test', 'test', 13124, NULL, 0),
 (4, 'maison', 'maison verte', 94400, 'Vitry', 'Vente', 1233455, 'Je souhaite reserver', 1),
-(5, 'maison', 'maison verte', 94400, 'Vitry', 'Vente', 1233455, 'Je souhaite reserver', 1);
+(5, 'maison', 'maison verte', 94400, 'Vitry', 'Vente', 1233455, 'Je souhaite reserver', 1),
+(6, 'test', 'test', 94400, 'test', 'test', 123456, NULL, 0),
+(7, 'Maison blanche', 'Maison blanche', 94400, 'Maison blanche', 'vente', 312345, NULL, 0),
+(8, 'Maison blanche 02', 'Maison blanche 02', 75000, 'Paris', 'Vente', 999999, NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -68,7 +71,7 @@ ALTER TABLE `advert`
 -- AUTO_INCREMENT for table `advert`
 --
 ALTER TABLE `advert`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -54,9 +54,10 @@ if ($_POST) {
     $price = addslashes($price);
 
     if (empty($erreurs)) {
-        $requete = $connexion->exec("INSERT INTO advert (title, description, postal_code, city, type, price  ) VALUES ('$title', '$description', '$postal_code', '$city', '$type', '$price')");
+        $requete = $connexion->exec("INSERT INTO advert (title, description, postal_code, city, type, price, reservation_message, reserved) VALUES ('$title', '$description', '$postal_code', '$city', '$type', '$price', null, 0)");
         debug('test');
-        debug($requete);
+        debug("requete");
+        debug($requete . "⛔️");
         if ($requete == 1) {
             $_SESSION["succes"] = "L'annonce a bien été ajoutée";
             redirection("list_advert.php");
@@ -64,9 +65,11 @@ if ($_POST) {
             $_SESSION["erreur"] = "Erreur SQL";
         }
     }
+    echo "Erreurs 😀";
+    debug($erreurs);
 }
 
 // AFFICHAGE
 $h1 = "Ajouter une annonce";
 
-affichage("advert/form.html.php", ["h1" => $h1]);
+affichage("advert/form.html.php", ["h1" => $h1, "erreurs" => $erreurs ?? null]);

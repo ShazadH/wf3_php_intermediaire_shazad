@@ -38,7 +38,8 @@
         <!-- Messages -->
         <?php if (!empty($_SESSION["erreur"])) : ?>
             <div class="alert alert-danger">
-                <?= $_SESSION["erreur"] ?>
+                <?= $_SESSION["erreur"] . " test header" ?>
+                <?= debug($_SESSION) ?>
                 <?php $_SESSION["erreur"] = [] ?>
             </div>
         <?php endif ?>

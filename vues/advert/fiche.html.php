@@ -1,3 +1,9 @@
+<?php
+// $mode = $mode ?? "insertion";
+?>
+
+<?php include "vues/erreurs_formulaire.html.php"; ?>
+
 <ul class="list-group mb-3">
     <li class="list-group-item">
         <div class="d-flex mx-auto">
@@ -61,13 +67,14 @@
     <?php endif; ?>
 
     <?php if (!$advert["reserved"]) : ?>
-        <form method="post">
+        <form method="post" id="reservation-form">
             <li class="list-group-item">
                 <div class="form-group">
                     <label for="reservation_message"><strong>Message de reservation</strong></label>
                     <textarea name="reservation_message" id="reservation_message" cols="30" rows="10" class="form-control"></textarea>
                 </div>
             </li>
+
         </form>
     <?php endif; ?>
 
@@ -86,7 +93,7 @@
         <i class="fa-solid fa-list"></i>
     </a>
     <?php if (!$advert["reserved"]) : ?>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" form="reservation-form">
             Enregistrer
         </button>
     <?php endif; ?>

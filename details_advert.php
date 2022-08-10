@@ -3,22 +3,30 @@
 require "inc/init.inc.php";
 $id = $_GET["id"] ?? null;
 debug($id);
+echo "POST";
 debug($_POST);
+
 if ($_POST) {
     $reservation_message = $_POST["reservation_message"];
     $erreurs = [];
-
+    // $erreurs[] = "test";
 
     // Vérification de la validité du formulaire
     if (empty($reservation_message)) {
-        $erreurs[] = "Le titre ne peut être vide";
+        $erreurs[] = "Le message de reservation ne peut être vide";
     }
 
     $reservation_message = htmlentities($reservation_message);
     $reservation_message = addslashes($reservation_message);
 
+    echo "reservat mess";
+    debug($reservation_message);
+
     if (empty($erreurs)) {
-        $requete = $connexion->exec("INSERT INTO advert (reservation_message) VALUES ('$reservation_message') ");
+        $requete = $connexion->exec("UPDATE advert
+                                     SET reservation_message = '$reservation_message', reserved = true
+                                     WHERE id = $id");
+
         debug($requete);
         if ($requete == 1) {
             $_SESSION["succes"] = "L'annonce a bien été ajoutée";
@@ -27,6 +35,9 @@ if ($_POST) {
             $_SESSION["erreur"] = "Erreur SQL";
         }
     }
+
+    echo "Erreurs";
+    debug($erreurs);
 }
 
 if ($id) {
@@ -49,5 +60,6 @@ if ($id) {
 
 affichage("advert/fiche.html.php", [
     "advert" => $advert,
-    "h1" => "Fiche annonce"
+    "h1" => "Fiche annonce",
+    "erreurs" => $erreurs ?? null
 ]);

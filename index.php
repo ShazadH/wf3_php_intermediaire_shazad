@@ -11,11 +11,13 @@ if ($requete) {
 
 include "vues/header.html.php";
 ?>
-<div class="card-columns">
+<div class="card-row d-flex flex-wrap justify-content-around ">
     <?php foreach ($adverts as $adverts) : ?>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/assets/img/home.jpg" alt="Card image cap">
+        <div class="card  text-center mb-3 mx-3 " style="height: 30rem; width: 30rem">
+            <img class="card-img-top" style="height: 15rem" src="/assets/img/home.jpg" alt="Card image cap">
             <div class="card-body">
+                <h5 class="card-title"><?= $adverts["id"] ?></h5>
+
                 <h5 class="card-title"><?= strtoupper($adverts["title"]) ?></h5>
                 <p class="card-text"><?= $adverts["description"] ?></p>
                 <p class="card-text reserved"><?= $adverts["reserved"] ? 'Reservé' : '' ?> </p>

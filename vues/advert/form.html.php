@@ -3,6 +3,7 @@ $mode = $mode ?? "insertion";
 ?>
 
 <?php include "vues/erreurs_formulaire.html.php"; ?>
+
 <form method="post">
     <div class="form-group">
         <label for="title"><strong>Titre de l'annonce</strong></label>
